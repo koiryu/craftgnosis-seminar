@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>フィジカルAI入門セミナー｜Craftgnosis</title>
+  <meta name="description" content="製造業のための招待制フィジカルAI入門セミナー。埼玉大学准教授・辻俊明が登壇。2026年6月開催。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/common.css" />
+  <style>
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 72px;
+    }
+
+    .hero-left {
+      background: var(--steel);
+      padding: 7rem 5rem 5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-left::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(184,76,43,0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-left::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--rust) 0%, transparent 100%);
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--rust-light);
+      border: 1px solid var(--rust);
+      padding: 0.35em 0.9em;
+      margin-bottom: 2.5rem;
+      width: fit-content;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.35;
+      color: #fff;
+      margin-bottom: 1.8rem;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--rust-light);
+      font-family: 'DM Serif Display', serif;
+    }
+
+    .hero-sub {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.9;
+      max-width: 380px;
+      margin-bottom: 3rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-bottom: 3rem;
+    }
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.7);
+    }
+    .meta-item .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--rust);
+      flex-shrink: 0;
+    }
+
+    .hero-right {
+      background: var(--cream);
+      padding: 7rem 5rem 5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .price-card {
+      border: 1px solid var(--line);
+      padding: 2.5rem;
+      background: #fff;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+    .price-card::before {
+      content: '参加費';
+      position: absolute;
+      top: -0.6em; left: 1.5rem;
+      background: #fff;
+      padding: 0 0.5rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+    }
+
+    .price-main {
+      font-family: 'DM Serif Display', serif;
+      font-size: 3.5rem;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .price-main span {
+      font-size: 1.2rem;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      color: var(--muted);
+    }
+    .price-note {
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    .capacity-bar {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--line);
+    }
+    .capacity-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.08em;
+    }
+    .bar-track {
+      height: 4px;
+      background: var(--line);
+      border-radius: 2px;
+    }
+    .bar-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--rust);
+      border-radius: 2px;
+      transition: width 1.5s cubic-bezier(0.25,1,0.5,1);
+    }
+
+    .invite-note {
+      background: var(--steel);
+      color: rgba(255,255,255,0.8);
+      font-size: 0.78rem;
+      padding: 1rem 1.5rem;
+      line-height: 1.7;
+    }
+    .invite-note strong { color: var(--rust-light); font-weight: 500; }
+
+    /* ── HERO ANIMATIONS ── */
+    .hero-left > * { animation: fadeUp 0.7s ease both; }
+    .badge { animation-delay: 0.1s; }
+    .hero-eyebrow { animation-delay: 0.2s; }
+    .hero-title { animation-delay: 0.3s; }
+    .hero-sub { animation-delay: 0.4s; }
+    .hero-meta { animation-delay: 0.5s; }
+    .cta-btn { animation-delay: 0.6s; }
+    .hero-right > * { animation: fadeUp 0.7s ease both; animation-delay: 0.5s; }
+
+    /* ── ABOUT ── */
+    .about { background: #fff; }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+      margin-top: 3.5rem;
+    }
+    .about-text p {
+      font-size: 0.9rem;
+      line-height: 2.1;
+      color: #3a3830;
+      margin-bottom: 1.5rem;
+    }
+    .keyword-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 2rem;
+    }
+    .keyword-list li {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      border: 1px solid var(--steel);
+      color: var(--steel);
+      padding: 0.3em 0.9em;
+    }
+    .stat-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .stat-item {
+      border-left: 2px solid var(--rust);
+      padding-left: 1.2rem;
+    }
+    .stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.2rem;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      line-height: 1.5;
+    }
+
+    /* ── PROGRAM ── */
+    .program { background: var(--paper); }
+    .program-timeline {
+      margin-top: 3.5rem;
+      position: relative;
+    }
+    .program-timeline::before {
+      content: '';
+      position: absolute;
+      left: 3.5rem; top: 0; bottom: 0;
+      width: 1px;
+      background: var(--line);
+    }
+    .session {
+      display: grid;
+      grid-template-columns: 7rem 1fr;
+      gap: 2rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--line);
+      position: relative;
+    }
+    .session:last-child { border-bottom: none; }
+    .session-time {
+      text-align: right;
+      padding-right: 2rem;
+      position: relative;
+    }
+    .session-time::after {
+      content: '';
+      position: absolute;
+      right: -5px; top: 0.6rem;
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--paper);
+      border: 2px solid var(--rust);
+    }
+    .time-label {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: var(--rust);
+    }
+    .time-sub { font-size: 0.7rem; color: var(--muted); margin-top: 0.2rem; }
+    .session-num {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+    .session-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+    .session-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.9; }
+    .session-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.8rem; }
+    .tag {
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      background: var(--cream);
+      color: var(--steel);
+      padding: 0.25em 0.7em;
+    }
+
+    /* ── SPEAKER ── */
+    .speaker { background: var(--steel); color: #fff; }
+    .speaker .section-label { color: var(--rust-light); }
+    .speaker .section-label::after { background: var(--rust-light); }
+    .speaker .section-title { color: #fff; }
+    .speaker-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 3rem;
+      margin-top: 3.5rem;
+      align-items: start;
+    }
+    .speaker-avatar {
+      width: 160px; height: 160px;
+      background: var(--steel-light);
+      border: 2px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .avatar-initials {
+      font-family: 'DM Serif Display', serif;
+      font-size: 3rem;
+      color: rgba(255,255,255,0.5);
+    }
+    .speaker-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+    .speaker-title {
+      font-size: 0.8rem;
+      color: var(--rust-light);
+      letter-spacing: 0.08em;
+      margin-bottom: 1.5rem;
+    }
+    .speaker-bio {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 2;
+      max-width: 520px;
+      margin-bottom: 2rem;
+    }
+    .speaker-credentials { display: flex; flex-direction: column; gap: 0.6rem; }
+    .cred-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+    }
+    .cred-item::before {
+      content: '—';
+      color: var(--rust-light);
+      flex-shrink: 0;
+      margin-top: 0.05em;
+    }
+
+    /* ── TARGET ── */
+    .target { background: var(--cream); }
+    .target-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .target-card {
+      background: #fff;
+      padding: 2rem;
+      border-top: 3px solid var(--rust);
+    }
+    .target-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+    .target-card h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.7rem;
+    }
+    .target-card p { font-size: 0.8rem; color: var(--muted); line-height: 1.9; }
+
+    /* ── OVERVIEW ── */
+    .overview { background: #fff; }
+    .overview-table { margin-top: 3rem; border-top: 2px solid var(--ink); }
+    .overview-row {
+      display: grid;
+      grid-template-columns: 8rem 1fr;
+      border-bottom: 1px solid var(--line);
+      padding: 1.2rem 0;
+      align-items: baseline;
+      gap: 2rem;
+    }
+    .overview-key {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-top: 0.1rem;
+    }
+    .overview-val { font-size: 0.9rem; color: var(--ink); line-height: 1.8; }
+    .overview-val strong { font-weight: 500; color: var(--rust); }
+
+    /* ── REGISTER ── */
+    .register {
+      background: var(--ink);
+      padding: 6rem 0;
+      text-align: center;
+    }
+    .register .section-label { justify-content: center; color: var(--rust-light); }
+    .register .section-label::after { display: none; }
+    .register-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+    .register-sub {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 3rem;
+      line-height: 1.9;
+    }
+    .cta-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .cta-note {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left, .hero-right { padding: 4rem 2rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .target-cards { grid-template-columns: 1fr; }
+      .speaker-grid { grid-template-columns: 1fr; }
+      .stat-block { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="../" class="logo">Craft<span>gnosis</span></a>
+  <nav>
+    <a href="../">TOP</a>
+    <a href="../about/">About</a>
+    <a href="../services/">Services</a>
+    <a href="../news/">News</a>
+    <a href="../seminar/" class="active">Seminar</a>
+    <a href="../contact/">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="badge">招待制 · 定員30名</div>
+    <p class="hero-eyebrow">Physical AI Seminar 2026</p>
+    <h1 class="hero-title">
+      製造業のための<br/>
+      <em>フィジカルAI</em><br/>
+      入門セミナー
+    </h1>
+    <p class="hero-sub">
+      自動化技術は持っている。でも、AIへの展開はこれから——<br/>
+      そんな企業の技術者・担当者に向けた、実践的な半日セミナーです。
+    </p>
+    <div class="hero-meta">
+      <div class="meta-item"><span class="dot"></span>2026年6月12日（木）または18日（木）予定</div>
+      <div class="meta-item"><span class="dot"></span>東京都内（詳細は申込み後にご案内）</div>
+      <div class="meta-item"><span class="dot"></span>参加費 70,000円（税別）／名</div>
+    </div>
+    <a href="#register" class="cta-btn">参加申込みへ</a>
+  </div>
+  <div class="hero-right">
+    <div class="price-card">
+      <div class="price-main">¥70,000<span>（税別）/名</span></div>
+      <div class="price-note">法人経費払い対応・適格請求書（インボイス）発行予定</div>
+      <div class="capacity-bar">
+        <div class="capacity-label">
+          <span>定員</span>
+          <span>最大 30名</span>
+        </div>
+        <div class="bar-track">
+          <div class="bar-fill" id="barFill"></div>
+        </div>
+      </div>
+    </div>
+    <div class="invite-note">
+      <strong>招待制セミナーについて</strong><br/>
+      本セミナーは招待制です。ご参加には事前のご連絡と申込みフォームへのご登録が必要です。定員に達し次第、受付を締め切ります。
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <p class="section-label">About</p>
+    <h2 class="section-title">フィジカルAIとは何か、<br/>そして製造業に何をもたらすか</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          「フィジカルAI」とは、現実世界の物理環境に直接作用するAI技術の総称です。産業用ロボット、自律搬送、精密組み立て——製造現場の自動化をさらに高度化し、熟練技能者の不足という構造的課題を解決する鍵として、世界中で急速に研究・実装が進んでいます。
+        </p>
+        <p>
+          本セミナーでは、埼玉大学大学院でロボティクスと機械学習を専門とする辻俊明准教授が、基礎理論から最新の実装事例まで、製造業の技術者が明日から活かせる知識を体系的にお伝えします。
+        </p>
+        <ul class="keyword-list">
+          <li>ロボット基盤モデル</li>
+          <li>シミュレーション学習</li>
+          <li>エンドツーエンド制御</li>
+          <li>SIシステム構築</li>
+          <li>NEDO・経産省動向</li>
+        </ul>
+      </div>
+      <div class="stat-block">
+        <div class="stat-item fade-up">
+          <div class="stat-num">3×</div>
+          <div class="stat-label">90分セッション<br/>（合計半日）</div>
+        </div>
+        <div class="stat-item fade-up">
+          <div class="stat-num">30</div>
+          <div class="stat-label">名限定の<br/>少人数制</div>
+        </div>
+        <div class="stat-item fade-up">
+          <div class="stat-num">埼玉<br/>大学</div>
+          <div class="stat-label">発ベンチャー<br/>主催</div>
+        </div>
+        <div class="stat-item fade-up">
+          <div class="stat-num">Q&A</div>
+          <div class="stat-label">個別相談の<br/>時間あり</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section class="program" id="program">
+  <div class="container">
+    <p class="section-label">Program</p>
+    <h2 class="section-title">当日のプログラム</h2>
+    <p class="section-lead">午後半日で、フィジカルAIの基礎から自社活用の戦略まで体系的に学べます。</p>
+    <div class="program-timeline">
+      <div class="session fade-up">
+        <div class="session-time">
+          <div class="time-label">13:00</div>
+          <div class="time-sub">90分</div>
+        </div>
+        <div class="session-body">
+          <p class="session-num">Session 01</p>
+          <h3 class="session-title">フィジカルAIとは何か——基礎と最前線</h3>
+          <p class="session-desc">
+            ロボット基盤モデルの仕組みと、従来の産業用ロボット制御との本質的な違いを解説。シミュレーション学習（Sim-to-Real）、エンドツーエンド制御、マルチタスク対応など、製造現場を変える技術トレンドを概観します。
+          </p>
+          <div class="session-tags">
+            <span class="tag">ロボット基盤モデル</span>
+            <span class="tag">Sim-to-Real</span>
+            <span class="tag">技術動向</span>
+          </div>
+        </div>
+      </div>
+      <div class="session fade-up">
+        <div class="session-time">
+          <div class="time-label">14:45</div>
+          <div class="time-sub">90分</div>
+        </div>
+        <div class="session-body">
+          <p class="session-num">Session 02</p>
+          <h3 class="session-title">製造現場への適用事例と実装アプローチ</h3>
+          <p class="session-desc">
+            国内外の先進的な導入事例を通じて、どのような工程・ラインでフィジカルAIが有効か、どう実装するかを具体的に学びます。自動化技術を持つ企業が次のステップとして踏み出すための実践的な知識を提供します。
+          </p>
+          <div class="session-tags">
+            <span class="tag">実装事例</span>
+            <span class="tag">工程最適化</span>
+            <span class="tag">SI設計</span>
+          </div>
+        </div>
+      </div>
+      <div class="session fade-up">
+        <div class="session-time">
+          <div class="time-label">16:30</div>
+          <div class="time-sub">60分</div>
+        </div>
+        <div class="session-body">
+          <p class="session-num">Session 03</p>
+          <h3 class="session-title">自社への取り込み方・個別相談 &amp; Q&amp;A</h3>
+          <p class="session-desc">
+            参加企業の課題・現状を踏まえたグループディスカッションと個別質疑応答。「自社ではどこから始めるか」を具体化するセッション。事前アンケートをもとに、辻准教授が個別の状況に合わせたアドバイスを行います。
+          </p>
+          <div class="session-tags">
+            <span class="tag">個別相談</span>
+            <span class="tag">Q&amp;A</span>
+            <span class="tag">ネットワーキング</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPEAKER -->
+<section class="speaker" id="speaker">
+  <div class="container">
+    <p class="section-label">Speaker</p>
+    <h2 class="section-title">講師紹介</h2>
+    <div class="speaker-grid fade-up">
+      <div class="speaker-avatar">
+        <div class="avatar-initials">辻</div>
+      </div>
+      <div class="speaker-info">
+        <h3 class="speaker-name">辻 俊明</h3>
+        <p class="speaker-title">埼玉大学大学院 理工学研究科 准教授 / 株式会社Craftgnosis 取締役</p>
+        <p class="speaker-bio">
+          ロボティクスと機械学習の融合領域を専門とし、フィジカルAI基盤モデルの研究開発を牽引。NEDO等の国家プロジェクトにも参画し、産学連携による製造業向けAI実装の最前線に立つ。埼玉大学発ベンチャーとしてCraftgnosisを設立し、製造中小企業の技能不足解決に向けた実装展開を推進中。
+        </p>
+        <div class="speaker-credentials">
+          <div class="cred-item">埼玉大学大学院理工学研究科 准教授</div>
+          <div class="cred-item">ヒューマノイド向けムーンショット事業（採択）参画</div>
+          <div class="cred-item">NEDO GENIACプログラム 申請</div>
+          <div class="cred-item">株式会社Craftgnosis 共同設立者・取締役</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TARGET -->
+<section class="target" id="target">
+  <div class="container">
+    <p class="section-label">For Whom</p>
+    <h2 class="section-title">こんな方におすすめです</h2>
+    <div class="target-cards">
+      <div class="target-card fade-up">
+        <div class="target-icon">🏭</div>
+        <h3>自動化技術を持つ製造業の技術者</h3>
+        <p>既存の自動化・ロボット設備を持ちながら、AI展開の第一歩をどう踏み出すか模索している方。</p>
+      </div>
+      <div class="target-card fade-up">
+        <div class="target-icon">🔬</div>
+        <h3>AI導入を検討している設備・生産技術部門</h3>
+        <p>フィジカルAIの可能性と限界を正しく理解し、自社の導入計画に活かしたい方。</p>
+      </div>
+      <div class="target-card fade-up">
+        <div class="target-icon">🤝</div>
+        <h3>SI・ロボットシステム構築に関わる方</h3>
+        <p>顧客にフィジカルAIを提案・実装するためのベースラインを構築したい技術・営業担当者。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="overview" id="overview">
+  <div class="container">
+    <p class="section-label">Overview</p>
+    <h2 class="section-title">開催概要</h2>
+    <div class="overview-table">
+      <div class="overview-row fade-up">
+        <div class="overview-key">日時</div>
+        <div class="overview-val"><strong>2026年6月12日（木）または6月18日（木）</strong>　13:00〜17:30（予定）</div>
+      </div>
+      <div class="overview-row fade-up">
+        <div class="overview-key">会場</div>
+        <div class="overview-val">東京都内（申込み確定後にご案内）</div>
+      </div>
+      <div class="overview-row fade-up">
+        <div class="overview-key">定員</div>
+        <div class="overview-val">最大30名（招待制・先着順）</div>
+      </div>
+      <div class="overview-row fade-up">
+        <div class="overview-key">参加費</div>
+        <div class="overview-val"><strong>70,000円（税別）／名</strong>　※法人経費払い対応・適格請求書（インボイス）発行予定</div>
+      </div>
+      <div class="overview-row fade-up">
+        <div class="overview-key">お支払い</div>
+        <div class="overview-val">申込み後に請求書を発行します。開催2週間前までにお振込みください。</div>
+      </div>
+      <div class="overview-row fade-up">
+        <div class="overview-key">キャンセル</div>
+        <div class="overview-val">振込後のキャンセルは原則お受けできません。代理出席は可能です。</div>
+      </div>
+      <div class="overview-row fade-up">
+        <div class="overview-key">主催</div>
+        <div class="overview-val">株式会社Craftgnosis</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTER -->
+<section class="register" id="register">
+  <div class="container">
+    <p class="section-label">Register</p>
+    <h2 class="register-title">参加申込み</h2>
+    <p class="register-sub">
+      以下のフォームよりお申込みください。<br/>
+      確認後、3営業日以内にご連絡いたします。
+    </p>
+    <div class="cta-group">
+      <a href="https://forms.gle/XXXXXXXXXXXXXXXXXX" class="cta-primary" target="_blank" rel="noopener">
+        申込みフォームへ
+      </a>
+      <p class="cta-note">Google フォームが開きます</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="../" class="footer-logo">Craftgnosis</a>
+  <nav class="footer-nav">
+    <a href="../about/">About</a>
+    <a href="../services/">Services</a>
+    <a href="../news/">News</a>
+    <a href="../seminar/">Seminar</a>
+    <a href="../contact/">Contact</a>
+  </nav>
+  <div class="footer-copy">© 2026 Craftgnosis, Inc. All rights reserved.</div>
+</footer>
+
+<script src="../assets/js/common.js"></script>
+<script>
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('barFill').style.width = '45%';
+    }, 800);
+  });
+</script>
+
+</body>
+</html>

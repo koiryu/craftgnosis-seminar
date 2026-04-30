@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Craftgnosis｜フィジカルAIで製造業の未来をつくる</title>
+  <meta name="description" content="株式会社Craftgnosis。製造業向けフィジカルAIの研究・開発・実装支援。埼玉大学発ベンチャー。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/common.css" />
+  <style>
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      padding-top: 72px;
+      display: flex;
+      align-items: center;
+      background: var(--steel);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -120px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(184,76,43,0.2) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--rust) 0%, transparent 60%);
+    }
+    .hero .container { position: relative; z-index: 1; }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+      margin-bottom: 2rem;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--rust-light);
+      font-family: 'DM Serif Display', serif;
+    }
+
+    .hero-sub {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 2;
+      max-width: 500px;
+      margin-bottom: 3rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── INTRO ── */
+    .intro { background: #fff; }
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      margin-top: 3.5rem;
+    }
+    .intro-text p {
+      font-size: 0.9rem;
+      line-height: 2.1;
+      color: #3a3830;
+      margin-bottom: 1.5rem;
+    }
+    .intro-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .stat-item {
+      border-left: 2px solid var(--rust);
+      padding-left: 1.2rem;
+    }
+    .stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.4rem;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      line-height: 1.5;
+    }
+
+    /* ── SERVICES ── */
+    .services { background: var(--paper); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .service-card {
+      background: #fff;
+      padding: 2.5rem 2rem;
+      border-top: 3px solid var(--rust);
+      display: flex;
+      flex-direction: column;
+    }
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+    }
+    .service-card h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+    }
+    .service-card p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.9;
+      flex: 1;
+    }
+    .service-link {
+      margin-top: 1.5rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--rust);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: gap 0.2s;
+    }
+    .service-link:hover { gap: 0.7rem; }
+    .service-link::after { content: '→'; }
+
+    /* ── SEMINAR BANNER ── */
+    .seminar-banner {
+      background: var(--steel);
+      padding: 5rem 0;
+    }
+    .banner-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+    }
+    .banner-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--rust-light);
+      border: 1px solid var(--rust);
+      padding: 0.3em 0.8em;
+      margin-bottom: 1rem;
+      width: fit-content;
+    }
+    .banner-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.4;
+      margin-bottom: 0.8rem;
+    }
+    .banner-meta {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ── NEWS ── */
+    .news { background: var(--cream); }
+    .news-list {
+      margin-top: 3rem;
+      border-top: 2px solid var(--ink);
+    }
+    .news-item {
+      display: grid;
+      grid-template-columns: 6rem auto 1fr;
+      gap: 1.5rem;
+      align-items: baseline;
+      padding: 1.2rem 0;
+      border-bottom: 1px solid var(--line);
+      text-decoration: none;
+      color: var(--ink);
+      transition: color 0.2s;
+    }
+    .news-item:hover { color: var(--rust); }
+    .news-date {
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      font-family: 'DM Serif Display', serif;
+    }
+    .news-cat {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--rust);
+      border: 1px solid var(--rust);
+      padding: 0.2em 0.6em;
+      white-space: nowrap;
+    }
+    .news-title { font-size: 0.9rem; line-height: 1.6; }
+    .news-more {
+      margin-top: 2rem;
+      text-align: right;
+    }
+
+    /* ── CONTACT CTA ── */
+    .contact-cta {
+      background: var(--ink);
+      padding: 6rem 0;
+      text-align: center;
+    }
+    .contact-cta .section-label { justify-content: center; color: var(--rust-light); }
+    .contact-cta .section-label::after { display: none; }
+    .contact-cta-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+    .contact-cta-sub {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 3rem;
+      line-height: 1.9;
+    }
+    .cta-group {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero { min-height: auto; padding: 6rem 0 4rem; }
+      .intro-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .banner-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .intro-stats { grid-template-columns: 1fr 1fr; }
+      .news-item { grid-template-columns: 1fr; gap: 0.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="/" class="logo">Craft<span>gnosis</span></a>
+  <nav>
+    <a href="/" class="active">TOP</a>
+    <a href="about/">About</a>
+    <a href="services/">Services</a>
+    <a href="news/">News</a>
+    <a href="seminar/">Seminar</a>
+    <a href="contact/">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <p class="hero-eyebrow">Physical AI × Manufacturing</p>
+    <h1 class="hero-title">
+      <em>フィジカルAI</em>で、<br/>
+      製造業の未来をつくる。
+    </h1>
+    <p class="hero-sub">
+      埼玉大学発ベンチャー・Craftgnosisは、ロボティクスと機械学習の融合技術を通じて、製造現場の自動化・高度化を実装レベルで支援します。
+    </p>
+    <div class="hero-actions">
+      <a href="services/" class="cta-btn">サービスを見る</a>
+      <a href="contact/" class="cta-outline">お問い合わせ</a>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="container">
+    <p class="section-label">About Us</p>
+    <h2 class="section-title">製造業のAI実装を、<br/>研究から現場まで。</h2>
+    <div class="intro-grid">
+      <div class="intro-text">
+        <p>
+          Craftgnosisは、埼玉大学大学院でロボティクスと機械学習を研究する辻俊明准教授が共同設立した技術ベンチャーです。アカデミアの最先端知見と、産業現場の実務経験を兼ね備えた専門チームが、製造業のAI化を一気通貫で支援します。
+        </p>
+        <p>
+          AIコンサルティング、受託開発・SI、研究・R&D支援、そして教育セミナーを通じ、「フィジカルAI」の実装を加速させます。
+        </p>
+        <a href="about/" class="cta-outline">会社概要を見る</a>
+      </div>
+      <div class="intro-stats">
+        <div class="stat-item fade-up">
+          <div class="stat-num">埼玉<br/>大学</div>
+          <div class="stat-label">発ベンチャー</div>
+        </div>
+        <div class="stat-item fade-up">
+          <div class="stat-num">3+</div>
+          <div class="stat-label">主要サービス領域</div>
+        </div>
+        <div class="stat-item fade-up">
+          <div class="stat-num">NEDO</div>
+          <div class="stat-label">等の国家プロジェクト参画</div>
+        </div>
+        <div class="stat-item fade-up">
+          <div class="stat-num">R&D</div>
+          <div class="stat-label">産学連携による技術開発</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <div class="container">
+    <p class="section-label">Services</p>
+    <h2 class="section-title">サービス</h2>
+    <p class="section-lead">フィジカルAI実装に必要な、戦略から開発・研究まで幅広く対応します。</p>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-icon">🤖</div>
+        <h3>AIコンサルティング</h3>
+        <p>製造業向けのAI戦略立案から、フィジカルAI導入ロードマップの策定まで。現場の実態に即した実践的なアドバイスを提供します。</p>
+        <a href="services/" class="service-link">詳細を見る</a>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">⚙️</div>
+        <h3>受託開発・SI</h3>
+        <p>ロボット制御システム、AIモデル開発、SIインテグレーションを一括受託。研究成果をベースにした信頼性の高い実装を行います。</p>
+        <a href="services/" class="service-link">詳細を見る</a>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">🔬</div>
+        <h3>研究・R&D支援</h3>
+        <p>大学・研究機関との共同研究から、企業内R&Dの技術支援まで。最前線の知見を持つチームが研究開発をアクセラレートします。</p>
+        <a href="services/" class="service-link">詳細を見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEMINAR BANNER -->
+<section class="seminar-banner">
+  <div class="container">
+    <div class="banner-inner fade-up">
+      <div>
+        <div class="banner-badge">招待制 · 定員30名</div>
+        <h2 class="banner-title">
+          製造業のための<br/>フィジカルAI入門セミナー 2026
+        </h2>
+        <p class="banner-meta">2026年6月12日または18日　東京都内　¥70,000（税別）</p>
+      </div>
+      <a href="seminar/" class="cta-btn">セミナー詳細へ</a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="news">
+  <div class="container">
+    <p class="section-label">News</p>
+    <h2 class="section-title">ニュース</h2>
+    <div class="news-list">
+      <a href="seminar/" class="news-item fade-up">
+        <span class="news-date">2026.04.01</span>
+        <span class="news-cat">Seminar</span>
+        <span class="news-title">フィジカルAI入門セミナー 2026（6月開催）の申込み受付を開始しました</span>
+      </a>
+      <a href="about/" class="news-item fade-up">
+        <span class="news-date">2026.01.15</span>
+        <span class="news-cat">Company</span>
+        <span class="news-title">株式会社Craftgnosis 設立のお知らせ</span>
+      </a>
+    </div>
+    <div class="news-more">
+      <a href="news/" class="service-link">ニュース一覧へ</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT CTA -->
+<section class="contact-cta">
+  <div class="container">
+    <p class="section-label">Contact</p>
+    <h2 class="contact-cta-title">お気軽にご相談ください</h2>
+    <p class="contact-cta-sub">
+      サービスへのご質問、導入相談、共同研究のご提案など、<br/>どんなことでもお問い合わせください。
+    </p>
+    <div class="cta-group">
+      <a href="contact/" class="cta-primary">お問い合わせ</a>
+      <a href="seminar/" class="cta-outline" style="border-color:rgba(255,255,255,0.3);color:rgba(255,255,255,0.6);">セミナーに参加する</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/" class="footer-logo">Craftgnosis</a>
+  <nav class="footer-nav">
+    <a href="about/">About</a>
+    <a href="services/">Services</a>
+    <a href="news/">News</a>
+    <a href="seminar/">Seminar</a>
+    <a href="contact/">Contact</a>
+  </nav>
+  <div class="footer-copy">© 2026 Craftgnosis, Inc. All rights reserved.</div>
+</footer>
+
+<script src="assets/js/common.js"></script>
+</body>
+</html>

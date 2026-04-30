@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ニュース｜Craftgnosis</title>
+  <meta name="description" content="株式会社Craftgnosisの最新ニュース・お知らせ。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/common.css" />
+  <style>
+    .news-body { background: #fff; }
+
+    .news-list {
+      margin-top: 3rem;
+      border-top: 2px solid var(--ink);
+    }
+
+    .news-item {
+      display: grid;
+      grid-template-columns: 7rem auto 1fr;
+      gap: 1.5rem;
+      align-items: center;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--line);
+      text-decoration: none;
+      color: var(--ink);
+      transition: color 0.2s;
+    }
+    .news-item:hover { color: var(--rust); }
+    .news-item:hover .news-title { text-decoration: underline; text-decoration-color: var(--rust); }
+
+    .news-date {
+      font-family: 'DM Serif Display', serif;
+      font-size: 0.88rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
+    .news-cat {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--rust);
+      border: 1px solid var(--rust);
+      padding: 0.2em 0.7em;
+      white-space: nowrap;
+    }
+
+    .news-title {
+      font-size: 0.92rem;
+      line-height: 1.6;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .news-item {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="../" class="logo">Craft<span>gnosis</span></a>
+  <nav>
+    <a href="../">TOP</a>
+    <a href="../about/">About</a>
+    <a href="../services/">Services</a>
+    <a href="../news/" class="active">News</a>
+    <a href="../seminar/">Seminar</a>
+    <a href="../contact/">Contact</a>
+  </nav>
+</header>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container">
+    <p class="section-label">News</p>
+    <h1 class="section-title">ニュース</h1>
+    <p class="section-lead">Craftgnosisの最新情報をお届けします。</p>
+  </div>
+</div>
+
+<!-- NEWS LIST -->
+<section class="news-body">
+  <div class="container">
+    <div class="news-list">
+      <a href="../seminar/" class="news-item fade-up">
+        <span class="news-date">2026.04.01</span>
+        <span class="news-cat">Seminar</span>
+        <span class="news-title">フィジカルAI入門セミナー 2026（6月開催）の申込み受付を開始しました</span>
+      </a>
+      <a href="../about/" class="news-item fade-up">
+        <span class="news-date">2026.01.15</span>
+        <span class="news-cat">Company</span>
+        <span class="news-title">株式会社Craftgnosis 設立のお知らせ</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="../" class="footer-logo">Craftgnosis</a>
+  <nav class="footer-nav">
+    <a href="../about/">About</a>
+    <a href="../services/">Services</a>
+    <a href="../news/">News</a>
+    <a href="../seminar/">Seminar</a>
+    <a href="../contact/">Contact</a>
+  </nav>
+  <div class="footer-copy">© 2026 Craftgnosis, Inc. All rights reserved.</div>
+</footer>
+
+<script src="../assets/js/common.js"></script>
+</body>
+</html>

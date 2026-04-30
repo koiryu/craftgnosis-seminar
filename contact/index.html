@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>お問い合わせ｜Craftgnosis</title>
+  <meta name="description" content="株式会社Craftgnosisへのお問い合わせ。サービスのご相談、共同研究のご提案など、お気軽にご連絡ください。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/common.css" />
+  <style>
+    .contact-body { background: #fff; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 6rem;
+      margin-top: 3.5rem;
+      align-items: start;
+    }
+
+    /* ── LEFT INFO ── */
+    .contact-info-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .contact-info-text {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 2;
+      margin-bottom: 2.5rem;
+    }
+    .contact-types { display: flex; flex-direction: column; gap: 1.5rem; }
+    .contact-type {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .type-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .type-label {
+      font-size: 0.82rem;
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+    .type-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.7; }
+
+    /* ── FORM ── */
+    .contact-form {
+      background: var(--cream);
+      padding: 2.5rem;
+    }
+    .form-group { margin-bottom: 1.5rem; }
+    .form-label {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .form-label .req {
+      color: var(--rust);
+      margin-left: 0.3rem;
+      font-size: 0.7rem;
+    }
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 300;
+      padding: 0.75rem 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+    }
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: var(--rust);
+    }
+    .form-textarea { resize: vertical; min-height: 140px; line-height: 1.8; }
+    .form-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a7367' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+    .form-note {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+      line-height: 1.6;
+    }
+    .form-submit {
+      width: 100%;
+      background: var(--rust);
+      color: #fff;
+      border: none;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 1.1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 0.5rem;
+    }
+    .form-submit:hover { background: var(--rust-light); }
+    .privacy-note {
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 1rem;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="../" class="logo">Craft<span>gnosis</span></a>
+  <nav>
+    <a href="../">TOP</a>
+    <a href="../about/">About</a>
+    <a href="../services/">Services</a>
+    <a href="../news/">News</a>
+    <a href="../seminar/">Seminar</a>
+    <a href="../contact/" class="active">Contact</a>
+  </nav>
+</header>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container">
+    <p class="section-label">Contact</p>
+    <h1 class="section-title">お問い合わせ</h1>
+    <p class="section-lead">サービスのご相談、共同研究のご提案など、どんなことでもお気軽にご連絡ください。</p>
+  </div>
+</div>
+
+<!-- CONTACT BODY -->
+<section class="contact-body">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- LEFT: INFO -->
+      <div class="fade-up">
+        <h2 class="contact-info-title">こんなご相談に対応します</h2>
+        <p class="contact-info-text">
+          初回のご相談は無料です。まずはお気軽にお問い合わせください。内容を確認後、担当者より3営業日以内にご連絡いたします。
+        </p>
+        <div class="contact-types">
+          <div class="contact-type">
+            <span class="type-icon">🤖</span>
+            <div>
+              <div class="type-label">AIコンサルティング相談</div>
+              <div class="type-desc">フィジカルAI導入の可能性を探りたい、戦略策定を依頼したい</div>
+            </div>
+          </div>
+          <div class="contact-type">
+            <span class="type-icon">⚙️</span>
+            <div>
+              <div class="type-label">受託開発・SI見積もり</div>
+              <div class="type-desc">ロボット制御システムやAIモデルの開発を依頼したい</div>
+            </div>
+          </div>
+          <div class="contact-type">
+            <span class="type-icon">🔬</span>
+            <div>
+              <div class="type-label">研究・R&D連携</div>
+              <div class="type-desc">共同研究や産学連携プロジェクトを検討している</div>
+            </div>
+          </div>
+          <div class="contact-type">
+            <span class="type-icon">🎓</span>
+            <div>
+              <div class="type-label">セミナー・研修</div>
+              <div class="type-desc">社内研修やカスタムセミナーを依頼したい</div>
+            </div>
+          </div>
+          <div class="contact-type">
+            <span class="type-icon">💬</span>
+            <div>
+              <div class="type-label">その他</div>
+              <div class="type-desc">上記以外のご質問・ご提案もお気軽にどうぞ</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: FORM -->
+      <div class="fade-up">
+        <form class="contact-form" action="https://formspree.io/f/XXXXXXXX" method="POST">
+          <div class="form-group">
+            <label class="form-label" for="company">会社名<span class="req">*</span></label>
+            <input class="form-input" type="text" id="company" name="company" required placeholder="株式会社〇〇" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="name">お名前<span class="req">*</span></label>
+            <input class="form-input" type="text" id="name" name="name" required placeholder="山田 太郎" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">メールアドレス<span class="req">*</span></label>
+            <input class="form-input" type="email" id="email" name="email" required placeholder="example@company.co.jp" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="category">お問い合わせ種別<span class="req">*</span></label>
+            <select class="form-select" id="category" name="category" required>
+              <option value="" disabled selected>選択してください</option>
+              <option value="consulting">AIコンサルティング相談</option>
+              <option value="development">受託開発・SI見積もり</option>
+              <option value="research">研究・R&D連携</option>
+              <option value="seminar">セミナー・研修</option>
+              <option value="other">その他</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message">お問い合わせ内容<span class="req">*</span></label>
+            <textarea class="form-textarea" id="message" name="message" required placeholder="ご相談内容をご記入ください。現状の課題・ご要望などをできるだけ具体的にお書きいただけると、より的確なご提案が可能です。"></textarea>
+          </div>
+          <button type="submit" class="form-submit">送信する</button>
+          <p class="privacy-note">送信いただいた情報は、お問い合わせへの対応のみに使用します。</p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="../" class="footer-logo">Craftgnosis</a>
+  <nav class="footer-nav">
+    <a href="../about/">About</a>
+    <a href="../services/">Services</a>
+    <a href="../news/">News</a>
+    <a href="../seminar/">Seminar</a>
+    <a href="../contact/">Contact</a>
+  </nav>
+  <div class="footer-copy">© 2026 Craftgnosis, Inc. All rights reserved.</div>
+</footer>
+
+<script src="../assets/js/common.js"></script>
+</body>
+</html>

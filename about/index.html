@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>会社概要｜Craftgnosis</title>
+  <meta name="description" content="株式会社Craftgnosis の会社概要。埼玉大学発ベンチャー。フィジカルAIで製造業の未来をつくります。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/common.css" />
+  <style>
+    /* ── MISSION ── */
+    .mission { background: #fff; }
+    .mission-text {
+      max-width: 680px;
+      margin-top: 2.5rem;
+    }
+    .mission-text p {
+      font-size: 0.92rem;
+      line-height: 2.2;
+      color: #3a3830;
+      margin-bottom: 1.5rem;
+    }
+    .mission-quote {
+      border-left: 3px solid var(--rust);
+      padding: 1.2rem 2rem;
+      margin: 2.5rem 0;
+      background: var(--cream);
+    }
+    .mission-quote p {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    /* ── COMPANY INFO ── */
+    .company-info { background: var(--paper); }
+    .info-table {
+      margin-top: 3rem;
+      border-top: 2px solid var(--ink);
+      max-width: 680px;
+    }
+    .info-row {
+      display: grid;
+      grid-template-columns: 8rem 1fr;
+      border-bottom: 1px solid var(--line);
+      padding: 1.2rem 0;
+      gap: 2rem;
+      align-items: baseline;
+    }
+    .info-key {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .info-val {
+      font-size: 0.9rem;
+      color: var(--ink);
+      line-height: 1.8;
+    }
+
+    /* ── MEMBER ── */
+    .member { background: var(--cream); }
+    .member-card {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 3rem;
+      margin-top: 3.5rem;
+      align-items: start;
+      background: #fff;
+      padding: 2.5rem;
+    }
+    .member-avatar {
+      width: 140px; height: 140px;
+      background: var(--steel);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .avatar-initials {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.8rem;
+      color: rgba(255,255,255,0.5);
+    }
+    .member-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+    .member-role {
+      font-size: 0.78rem;
+      color: var(--rust);
+      letter-spacing: 0.08em;
+      margin-bottom: 1.2rem;
+    }
+    .member-bio {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 2;
+      margin-bottom: 1.5rem;
+    }
+    .member-credentials { display: flex; flex-direction: column; gap: 0.5rem; }
+    .cred-item {
+      font-size: 0.8rem;
+      color: #3a3830;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+    .cred-item::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--rust);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .member-card { grid-template-columns: 1fr; gap: 1.5rem; }
+      .info-row { grid-template-columns: 6rem 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="../" class="logo">Craft<span>gnosis</span></a>
+  <nav>
+    <a href="../">TOP</a>
+    <a href="../about/" class="active">About</a>
+    <a href="../services/">Services</a>
+    <a href="../news/">News</a>
+    <a href="../seminar/">Seminar</a>
+    <a href="../contact/">Contact</a>
+  </nav>
+</header>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container">
+    <p class="section-label">About</p>
+    <h1 class="section-title">会社概要</h1>
+    <p class="section-lead">フィジカルAIの研究・実装を通じて、製造業の未来を共につくります。</p>
+  </div>
+</div>
+
+<!-- MISSION -->
+<section class="mission">
+  <div class="container">
+    <p class="section-label">Mission</p>
+    <h2 class="section-title">私たちのミッション</h2>
+    <div class="mission-text">
+      <div class="mission-quote">
+        <p>「知識を工芸する」——<br/>研究室の知見を、製造現場の実装へ。</p>
+      </div>
+      <p>
+        Craftgnosis（クラフトノーシス）は、"Craft"（工芸・技能）と"Gnosis"（深い知識・認識）を組み合わせた社名が示すとおり、学術的な深い知識を実装レベルの工芸として昇華することを使命とする会社です。
+      </p>
+      <p>
+        ロボティクスと機械学習の融合領域「フィジカルAI」は、製造業の自動化・高度化における次のパラダイムシフトをもたらします。しかし、研究室の成果が実際の製造現場に届くまでには多くのギャップがあります。私たちはそのギャップを埋め、AIの恩恵を製造業の現場に届けます。
+      </p>
+      <p>
+        埼玉大学発ベンチャーとして、産学の強みを活かしながら、日本のものづくりの競争力向上に貢献します。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- COMPANY INFO -->
+<section class="company-info">
+  <div class="container">
+    <p class="section-label">Company</p>
+    <h2 class="section-title">会社情報</h2>
+    <div class="info-table">
+      <div class="info-row fade-up">
+        <div class="info-key">社名</div>
+        <div class="info-val">株式会社Craftgnosis（クラフトノーシス）</div>
+      </div>
+      <div class="info-row fade-up">
+        <div class="info-key">英語名</div>
+        <div class="info-val">Craftgnosis, Inc.</div>
+      </div>
+      <div class="info-row fade-up">
+        <div class="info-key">設立</div>
+        <div class="info-val">2025年（埼玉大学発ベンチャー）</div>
+      </div>
+      <div class="info-row fade-up">
+        <div class="info-key">所在地</div>
+        <div class="info-val">埼玉県（詳細はお問い合わせください）</div>
+      </div>
+      <div class="info-row fade-up">
+        <div class="info-key">事業内容</div>
+        <div class="info-val">フィジカルAI技術の研究・開発・実装支援／AIコンサルティング／受託開発・SI／研究・R&D支援／セミナー・教育事業</div>
+      </div>
+      <div class="info-row fade-up">
+        <div class="info-key">関連機関</div>
+        <div class="info-val">埼玉大学大学院 理工学研究科</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBER -->
+<section class="member">
+  <div class="container">
+    <p class="section-label">Team</p>
+    <h2 class="section-title">代表メンバー</h2>
+    <div class="member-card fade-up">
+      <div class="member-avatar">
+        <div class="avatar-initials">辻</div>
+      </div>
+      <div>
+        <h3 class="member-name">辻 俊明</h3>
+        <p class="member-role">埼玉大学大学院 理工学研究科 准教授 / 株式会社Craftgnosis 取締役</p>
+        <p class="member-bio">
+          ロボティクスと機械学習の融合領域を専門とし、フィジカルAI基盤モデルの研究開発を牽引。NEDO等の国家プロジェクトにも参画し、産学連携による製造業向けAI実装の最前線に立つ。埼玉大学発ベンチャーとしてCraftgnosisを設立し、製造中小企業の技能不足解決に向けた実装展開を推進中。
+        </p>
+        <div class="member-credentials">
+          <div class="cred-item">埼玉大学大学院理工学研究科 准教授</div>
+          <div class="cred-item">ヒューマノイド向けムーンショット事業（採択）参画</div>
+          <div class="cred-item">NEDO GENIACプログラム 申請</div>
+          <div class="cred-item">株式会社Craftgnosis 共同設立者・取締役</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="../" class="footer-logo">Craftgnosis</a>
+  <nav class="footer-nav">
+    <a href="../about/">About</a>
+    <a href="../services/">Services</a>
+    <a href="../news/">News</a>
+    <a href="../seminar/">Seminar</a>
+    <a href="../contact/">Contact</a>
+  </nav>
+  <div class="footer-copy">© 2026 Craftgnosis, Inc. All rights reserved.</div>
+</footer>
+
+<script src="../assets/js/common.js"></script>
+</body>
+</html>

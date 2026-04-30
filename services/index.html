@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>サービス｜Craftgnosis</title>
+  <meta name="description" content="Craftgnosisのサービス：AIコンサルティング、受託開発・SI、研究・R&D支援、セミナー・教育。製造業向けフィジカルAI実装を一気通貫で支援します。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/common.css" />
+  <style>
+    .service-section { border-bottom: 1px solid var(--line); }
+    .service-section:last-of-type { border-bottom: none; }
+
+    .service-section:nth-child(odd) { background: #fff; }
+    .service-section:nth-child(even) { background: var(--paper); }
+
+    .service-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .service-number {
+      font-family: 'DM Serif Display', serif;
+      font-size: 4rem;
+      color: var(--line);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-icon-lg {
+      font-size: 3rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .service-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      line-height: 1.4;
+    }
+
+    .service-desc {
+      font-size: 0.9rem;
+      line-height: 2.1;
+      color: #3a3830;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .service-features li {
+      font-size: 0.82rem;
+      color: var(--muted);
+      padding-left: 1.2rem;
+      position: relative;
+      line-height: 1.7;
+    }
+    .service-features li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--rust);
+    }
+
+    .service-detail {
+      background: var(--cream);
+      padding: 2rem;
+    }
+    .service-detail h4 {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .tag {
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      background: #fff;
+      color: var(--steel);
+      border: 1px solid var(--line);
+      padding: 0.3em 0.8em;
+    }
+
+    /* ── CTA SECTION ── */
+    .services-cta {
+      background: var(--ink);
+      padding: 6rem 0;
+      text-align: center;
+    }
+    .services-cta .section-label { justify-content: center; color: var(--rust-light); }
+    .services-cta .section-label::after { display: none; }
+    .cta-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+    .cta-sub {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 2.5rem;
+      line-height: 1.9;
+    }
+    .cta-group {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 768px) {
+      .service-inner { grid-template-columns: 1fr; gap: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="../" class="logo">Craft<span>gnosis</span></a>
+  <nav>
+    <a href="../">TOP</a>
+    <a href="../about/">About</a>
+    <a href="../services/" class="active">Services</a>
+    <a href="../news/">News</a>
+    <a href="../seminar/">Seminar</a>
+    <a href="../contact/">Contact</a>
+  </nav>
+</header>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container">
+    <p class="section-label">Services</p>
+    <h1 class="section-title">サービス</h1>
+    <p class="section-lead">フィジカルAI実装に必要な、戦略・開発・研究・教育をワンストップで提供します。</p>
+  </div>
+</div>
+
+<!-- SERVICE 01: AIコンサルティング -->
+<section class="service-section">
+  <div class="container">
+    <div class="service-inner">
+      <div class="fade-up">
+        <div class="service-number">01</div>
+        <div class="service-icon-lg">🤖</div>
+        <h2 class="service-title">AIコンサルティング</h2>
+        <p class="service-desc">
+          製造業のAI戦略立案から、フィジカルAI導入ロードマップの策定まで。現場の実態とアカデミアの最前線知見を組み合わせ、絵に描いた餅にならない実践的なアドバイスを提供します。
+        </p>
+        <ul class="service-features">
+          <li>フィジカルAI導入可能性調査・FS（フィージビリティスタディ）</li>
+          <li>製造ライン・工程のAI化ロードマップ策定</li>
+          <li>技術選定・ベンダー評価支援</li>
+          <li>NEDO・経産省補助金申請支援</li>
+          <li>社内AI人材育成計画の立案</li>
+        </ul>
+      </div>
+      <div class="fade-up">
+        <div class="service-detail">
+          <h4>対象キーワード</h4>
+          <div class="tag-list">
+            <span class="tag">AI戦略立案</span>
+            <span class="tag">ロードマップ</span>
+            <span class="tag">フィジカルAI</span>
+            <span class="tag">FS</span>
+            <span class="tag">補助金申請</span>
+            <span class="tag">製造DX</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE 02: 受託開発・SI -->
+<section class="service-section">
+  <div class="container">
+    <div class="service-inner">
+      <div class="fade-up">
+        <div class="service-number">02</div>
+        <div class="service-icon-lg">⚙️</div>
+        <h2 class="service-title">受託開発・SI</h2>
+        <p class="service-desc">
+          ロボット制御システム、AIモデル開発、SIインテグレーションを一括受託。大学研究室で培った基礎技術をベースに、現場の要求仕様に合わせた高信頼性の実装を行います。
+        </p>
+        <ul class="service-features">
+          <li>ロボット基盤モデルの開発・カスタマイズ</li>
+          <li>Sim-to-Real転移学習システムの構築</li>
+          <li>エンドツーエンド制御システムの設計・実装</li>
+          <li>既存設備へのAI制御レイヤー追加</li>
+          <li>SIインテグレーション・現場への導入支援</li>
+        </ul>
+      </div>
+      <div class="fade-up">
+        <div class="service-detail">
+          <h4>対象キーワード</h4>
+          <div class="tag-list">
+            <span class="tag">ロボット制御</span>
+            <span class="tag">AI開発</span>
+            <span class="tag">SI</span>
+            <span class="tag">Sim-to-Real</span>
+            <span class="tag">基盤モデル</span>
+            <span class="tag">エンドツーエンド</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE 03: 研究・R&D支援 -->
+<section class="service-section">
+  <div class="container">
+    <div class="service-inner">
+      <div class="fade-up">
+        <div class="service-number">03</div>
+        <div class="service-icon-lg">🔬</div>
+        <h2 class="service-title">研究・R&D支援</h2>
+        <p class="service-desc">
+          大学・研究機関との共同研究から、企業内R&Dの技術支援まで。フィジカルAIの最前線にいる研究チームが、貴社の技術開発をアクセラレートします。
+        </p>
+        <ul class="service-features">
+          <li>共同研究・産学連携プロジェクトの組成</li>
+          <li>企業R&D部門への技術アドバイザリー</li>
+          <li>最新論文・技術動向のキュレーション・解説</li>
+          <li>プロトタイプ開発・PoC支援</li>
+          <li>国家プロジェクト（NEDO・JST等）への参画支援</li>
+        </ul>
+      </div>
+      <div class="fade-up">
+        <div class="service-detail">
+          <h4>対象キーワード</h4>
+          <div class="tag-list">
+            <span class="tag">共同研究</span>
+            <span class="tag">産学連携</span>
+            <span class="tag">R&D支援</span>
+            <span class="tag">PoC</span>
+            <span class="tag">NEDO</span>
+            <span class="tag">技術顧問</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE 04: セミナー・教育 -->
+<section class="service-section">
+  <div class="container">
+    <div class="service-inner">
+      <div class="fade-up">
+        <div class="service-number">04</div>
+        <div class="service-icon-lg">🎓</div>
+        <h2 class="service-title">セミナー・教育</h2>
+        <p class="service-desc">
+          製造業の技術者・管理職を対象とした、フィジカルAIの実践的な学習プログラム。招待制の少人数セミナーから、社内向けカスタム研修まで対応します。
+        </p>
+        <ul class="service-features">
+          <li>フィジカルAI入門セミナー（公開・招待制）</li>
+          <li>企業向けカスタム研修プログラム</li>
+          <li>技術者向けワークショップ・ハンズオン</li>
+          <li>管理職・経営層向けAI戦略講座</li>
+        </ul>
+        <a href="../seminar/" class="cta-outline" style="margin-top:1.5rem; display:inline-block;">次回セミナーを見る</a>
+      </div>
+      <div class="fade-up">
+        <div class="service-detail">
+          <h4>対象キーワード</h4>
+          <div class="tag-list">
+            <span class="tag">セミナー</span>
+            <span class="tag">社内研修</span>
+            <span class="tag">ワークショップ</span>
+            <span class="tag">少人数制</span>
+            <span class="tag">招待制</span>
+            <span class="tag">製造業教育</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="services-cta">
+  <div class="container">
+    <p class="section-label">Contact</p>
+    <h2 class="cta-title">まずはご相談ください</h2>
+    <p class="cta-sub">
+      どのサービスが自社に合うか分からない場合も、<br/>お気軽にお問い合わせください。最適な形をご提案します。
+    </p>
+    <div class="cta-group">
+      <a href="../contact/" class="cta-primary">お問い合わせ</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="../" class="footer-logo">Craftgnosis</a>
+  <nav class="footer-nav">
+    <a href="../about/">About</a>
+    <a href="../services/">Services</a>
+    <a href="../news/">News</a>
+    <a href="../seminar/">Seminar</a>
+    <a href="../contact/">Contact</a>
+  </nav>
+  <div class="footer-copy">© 2026 Craftgnosis, Inc. All rights reserved.</div>
+</footer>
+
+<script src="../assets/js/common.js"></script>
+</body>
+</html>
