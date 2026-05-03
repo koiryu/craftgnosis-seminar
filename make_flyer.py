@@ -378,7 +378,7 @@ def make_flyer():
         c.setFont('YuGothB', 7.5)
         c.setFillColor(WHITE)
         c.drawCentredString(OVW_X + 10 + btn_w / 2, btn_y + 5,
-                            '参加申込み → craftgnosis.com/seminar')
+                            '参加申込み → forms.gle/sJkDNbPxFcvvKHtC7')
 
     c.save()
 
