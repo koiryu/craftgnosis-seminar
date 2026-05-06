@@ -106,82 +106,65 @@
     }
 
     .hero-right {
-      background: var(--cream);
-      padding: 7rem 5rem 5rem;
+      position: relative;
+      overflow: hidden;
+      min-height: 400px;
+    }
+
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    /* 画像がない場合のフォールバック */
+    .hero-right-fallback {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--steel) 0%, var(--steel-light) 50%, #2a3d52 100%);
       display: flex;
-      flex-direction: column;
+      align-items: center;
       justify-content: center;
     }
 
-    .price-card {
-      border: 1px solid var(--line);
-      padding: 2.5rem;
-      background: #fff;
-      margin-bottom: 2.5rem;
-      position: relative;
-    }
-    .price-card::before {
-      content: '参加費';
-      position: absolute;
-      top: -0.6em; left: 1.5rem;
-      background: #fff;
-      padding: 0 0.5rem;
-      font-size: 0.72rem;
-      letter-spacing: 0.15em;
-      color: var(--muted);
+    /* 左パネル内の価格・招待情報 */
+    .price-info {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.15);
     }
 
-    .price-main {
+    .price-figure {
       font-family: 'DM Serif Display', serif;
-      font-size: 3.5rem;
-      color: var(--ink);
+      font-size: 2.8rem;
+      color: #fff;
       line-height: 1;
       margin-bottom: 0.3rem;
     }
-    .price-main span {
-      font-size: 1.2rem;
+    .price-figure span {
+      font-size: 1rem;
       font-family: 'Noto Sans JP', sans-serif;
       font-weight: 300;
-      color: var(--muted);
+      color: rgba(255,255,255,0.5);
     }
-    .price-note {
-      font-size: 0.75rem;
-      color: var(--muted);
-      letter-spacing: 0.05em;
-    }
-
-    .capacity-bar {
-      margin-top: 1.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--line);
-    }
-    .capacity-label {
-      display: flex;
-      justify-content: space-between;
+    .price-sub {
       font-size: 0.72rem;
-      color: var(--muted);
-      margin-bottom: 0.5rem;
-      letter-spacing: 0.08em;
-    }
-    .bar-track {
-      height: 4px;
-      background: var(--line);
-      border-radius: 2px;
-    }
-    .bar-fill {
-      height: 100%;
-      width: 0%;
-      background: var(--rust);
-      border-radius: 2px;
-      transition: width 1.5s cubic-bezier(0.25,1,0.5,1);
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.04em;
+      margin-bottom: 1.2rem;
     }
 
     .invite-note {
-      background: var(--steel);
-      color: rgba(255,255,255,0.8);
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.75);
       font-size: 0.78rem;
-      padding: 1rem 1.5rem;
-      line-height: 1.7;
+      padding: 1rem 1.2rem;
+      line-height: 1.8;
     }
     .invite-note strong { color: var(--rust-light); font-weight: 500; }
 
@@ -459,11 +442,14 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       .hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-left, .hero-right { padding: 4rem 2rem; }
+      .hero-left { padding: 5rem 1.8rem 3rem; }
+      .hero-right { min-height: 260px; }
+      .hero-image { position: relative; width: 100%; height: 260px; object-fit: cover; }
       .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .target-cards { grid-template-columns: 1fr; }
       .speaker-grid { grid-template-columns: 1fr; }
       .stat-block { grid-template-columns: 1fr 1fr; }
+      .price-figure { font-size: 2.2rem; }
     }
   </style>
 </head>
@@ -497,30 +483,21 @@
       そんな企業の技術者・担当者に向けた、実践的な半日セミナーです。
     </p>
     <div class="hero-meta">
-      <div class="meta-item"><span class="dot"></span>2026年6月18日（木）13:45〜17:00</div>
+      <div class="meta-item"><span class="dot"></span>2026年6月18日（木）13:40〜17:00</div>
       <div class="meta-item"><span class="dot"></span>東京都内（詳細は申込み後にご案内）</div>
-      <div class="meta-item"><span class="dot"></span>参加費 70,000円（税別）／名</div>
     </div>
-    <a href="#register" class="cta-btn">参加申込みへ</a>
-  </div>
-  <div class="hero-right">
-    <div class="price-card">
-      <div class="price-main">¥70,000<span>（税別）/名</span></div>
-      <div class="price-note">法人経費払い対応・インボイス（適格請求書）非対応</div>
-      <div class="capacity-bar">
-        <div class="capacity-label">
-          <span>定員</span>
-          <span>最大 30名</span>
-        </div>
-        <div class="bar-track">
-          <div class="bar-fill" id="barFill"></div>
-        </div>
+    <div class="price-info">
+      <div class="price-figure">¥70,000<span>（税別）／名</span></div>
+      <div class="price-sub">法人経費払い対応・インボイス（適格請求書）非対応</div>
+      <div class="invite-note">
+        <strong>招待制セミナーについて</strong><br/>
+        本セミナーは招待制です。ご参加には事前のご連絡と申込みフォームへのご登録が必要です。定員に達し次第、受付を締め切ります。
       </div>
     </div>
-    <div class="invite-note">
-      <strong>招待制セミナーについて</strong><br/>
-      本セミナーは招待制です。ご参加には事前のご連絡と申込みフォームへのご登録が必要です。定員に達し次第、受付を締め切ります。
-    </div>
+    <a href="#register" class="cta-btn" style="margin-top:2rem; display:inline-block; width:fit-content;">参加申込みへ</a>
+  </div>
+  <div class="hero-right">
+    <img src="../assets/images/hero-robot.jpg" alt="フィジカルAI・製造ロボット" class="hero-image" />
   </div>
 </section>
 
@@ -547,8 +524,8 @@
       </div>
       <div class="stat-block">
         <div class="stat-item fade-up">
-          <div class="stat-num">3×</div>
-          <div class="stat-label">90分セッション<br/>（合計半日）</div>
+          <div class="stat-num">3</div>
+          <div class="stat-label">セッション構成<br/>（計3時間20分）</div>
         </div>
         <div class="stat-item fade-up">
           <div class="stat-num">30</div>
@@ -576,55 +553,55 @@
     <div class="program-timeline">
       <div class="session fade-up">
         <div class="session-time">
-          <div class="time-label">13:45</div>
-          <div class="time-sub">75分</div>
+          <div class="time-label">13:40</div>
+          <div class="time-sub">60分</div>
         </div>
         <div class="session-body">
           <p class="session-num">Session 01</p>
           <h3 class="session-title">フィジカルAIとは何か——基礎と最前線</h3>
           <p class="session-desc">
-            ロボット基盤モデルの仕組みと、従来の産業用ロボット制御との本質的な違いを解説。シミュレーション学習（Sim-to-Real）、エンドツーエンド制御、マルチタスク対応など、製造現場を変える技術トレンドを概観します。
+            ロボット基盤モデルの仕組みと、従来制御との本質的な違いを整理。Sim-to-Realやエンドツーエンド制御など、フィジカルAIを理解するうえで重要な技術トレンドを概観します。
           </p>
           <div class="session-tags">
             <span class="tag">ロボット基盤モデル</span>
             <span class="tag">Sim-to-Real</span>
-            <span class="tag">技術動向</span>
+            <span class="tag">エンドツーエンド制御</span>
           </div>
         </div>
       </div>
       <div class="session fade-up">
         <div class="session-time">
-          <div class="time-label">15:15</div>
-          <div class="time-sub">75分</div>
+          <div class="time-label">14:55</div>
+          <div class="time-sub">60分</div>
         </div>
         <div class="session-body">
           <p class="session-num">Session 02</p>
-          <h3 class="session-title">製造現場への適用事例と実装アプローチ</h3>
+          <h3 class="session-title">フィジカルAIのための教示技術と力制御</h3>
           <p class="session-desc">
-            国内外の先進的な導入事例を通じて、どのような工程・ラインでフィジカルAIが有効か、どう実装するかを具体的に学びます。自動化技術を持つ企業が次のステップとして踏み出すための実践的な知識を提供します。
+            フィジカルAIを有効利用するためにはAIを構築するサイバー空間と実空間を繋ぐ制御技術が基盤となります。しかし制御とAIの文化には隔たりがあるのでこれらを繋ぐ技術について解説します。
           </p>
           <div class="session-tags">
-            <span class="tag">実装事例</span>
-            <span class="tag">工程最適化</span>
-            <span class="tag">SI設計</span>
+            <span class="tag">教示技術</span>
+            <span class="tag">力制御</span>
+            <span class="tag">サイバー空間×実空間</span>
           </div>
         </div>
       </div>
       <div class="session fade-up">
         <div class="session-time">
-          <div class="time-label">16:30</div>
-          <div class="time-sub">30分</div>
+          <div class="time-label">16:10</div>
+          <div class="time-sub">50分</div>
         </div>
         <div class="session-body">
           <p class="session-num">Session 03</p>
-          <h3 class="session-title">自社への取り込み方・個別相談 &amp; Q&amp;A</h3>
+          <h3 class="session-title">現場への適用事例と実装アプローチ</h3>
           <p class="session-desc">
-            参加企業の課題・現状を踏まえたグループディスカッションと個別質疑応答。「自社ではどこから始めるか」を具体化するセッション。事前アンケートをもとに、辻准教授が個別の状況に合わせたアドバイスを行います。
+            国内外の先進導入事例をもとに、どの工程・ラインでフィジカルAIが有効かを整理し、現場実装に向けた具体的なアプローチを学びます。
           </p>
           <div class="session-tags">
-            <span class="tag">個別相談</span>
-            <span class="tag">Q&amp;A</span>
-            <span class="tag">ネットワーキング</span>
+            <span class="tag">導入事例</span>
+            <span class="tag">工程最適化</span>
+            <span class="tag">実装アプローチ</span>
           </div>
         </div>
       </div>
@@ -692,7 +669,7 @@
     <div class="overview-table">
       <div class="overview-row fade-up">
         <div class="overview-key">日時</div>
-        <div class="overview-val"><strong>2026年6月18日（木）</strong>　13:45〜17:00</div>
+        <div class="overview-val"><strong>2026年6月18日（木）</strong>　13:40〜17:00</div>
       </div>
       <div class="overview-row fade-up">
         <div class="overview-key">会場</div>
@@ -754,13 +731,6 @@
 </footer>
 
 <script src="../assets/js/common.js"></script>
-<script>
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      document.getElementById('barFill').style.width = '45%';
-    }, 800);
-  });
-</script>
 
 </body>
 </html>
