@@ -106,17 +106,18 @@
     }
 
     .hero-right {
-      position: relative;
       overflow: hidden;
       min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--steel);
     }
 
     .hero-image {
-      position: absolute;
-      inset: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       object-position: center;
       display: block;
     }
@@ -444,7 +445,7 @@
       .hero { grid-template-columns: 1fr; min-height: auto; }
       .hero-left { padding: 5rem 1.8rem 3rem; }
       .hero-right { min-height: 260px; }
-      .hero-image { position: relative; width: 100%; height: 260px; object-fit: cover; }
+      .hero-image { width: 100%; height: 260px; object-fit: contain; }
       .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .target-cards { grid-template-columns: 1fr; }
       .speaker-grid { grid-template-columns: 1fr; }
